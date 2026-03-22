@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+read -rp "Which script do you want to list? " name
+
+HOME_DIR="$HOME/Documents/Scripts/$name"
+DEST_FILE="$HOME/Desktop/$name.txt"
+
+# check if source dir exists
+if [[ ! -d "$HOME_DIR" ]]; then
+    echo "Script directory not found. Nothing happened."
+    exit 1
+else
+    echo "Script directory $HOME_DIR found! Continuing script."
+fi
+
+# prepare destination file
+if [[ -f "$DEST_FILE" ]]; then
+    echo "Destination file already exists. Creating clean new file."
+    : > "$DEST_FILE"
+else
+    echo "$DEST_FILE doesn't exist yet! Creating new file."
+    touch "$DEST_FILE"
+fi
+
+echo "Listing script $name in $DEST_FILE."
+
+# append modules first
+if [[ -d "$HOME_DIR/modules" ]]; then
+    echo "Appending lib modules first."
+
+    shopt -s nullglob
+    MODULES=("$HOME_DIR/modules"/*)
+    shopt -u nullglob
+
+    for module in "${MODULES[@]}"; do
+        cat "$module" >> "$DEST_FILE"
+    done
+else
+    echo "No libraries found. Skipping to main script."
+fi
+
+# append main script
+cat "$HOME_DIR/$name" >> "$DEST_FILE"
+
+echo "File created successfully at $DEST_FILE."
