@@ -32,9 +32,11 @@ A utility script that generates a combined text file representation of a script 
 Or interactively:
 
 ./script_to_text.sh
-📤 Output
+
+Output
 ~/Desktop/<script_name>.txt
-⚠️ Notes
+
+Notes
 Overwrites existing output file
 Requires readable script directory
 
