@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-read -rp "Which script do you want to list? " name
+# check arg
+
+if [[ $# -eq 1 ]]; then
+    name="$1"
+    echo "Listing script $name."
+else
+    read -rp "Which script do you want to list? " name
+fi
 
 HOME_DIR="$HOME/Documents/Scripts/$name"
 DEST_FILE="$HOME/Desktop/$name.txt"
 
 # check if source dir exists
+
 if [[ ! -d "$HOME_DIR" ]]; then
     echo "Script directory not found. Nothing happened."
     exit 1
@@ -15,6 +23,7 @@ else
 fi
 
 # prepare destination file
+
 if [[ -f "$DEST_FILE" ]]; then
     echo "Destination file already exists. Creating clean new file."
     : > "$DEST_FILE"
@@ -26,6 +35,7 @@ fi
 echo "Listing script $name in $DEST_FILE."
 
 # append modules first
+
 if [[ -d "$HOME_DIR/modules" ]]; then
     echo "Appending lib modules first."
 
@@ -41,6 +51,7 @@ else
 fi
 
 # append main script
+
 cat "$HOME_DIR/$name" >> "$DEST_FILE"
 
 echo "File created successfully at $DEST_FILE."
