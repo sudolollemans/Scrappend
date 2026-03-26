@@ -1,4 +1,5 @@
 A utility script that generates a combined text file representation of a script folder. It collects the main script and optional module files and outputs them into a single `.txt` file for inspection, sharing, or documentation. 
+_Note: This is a personal tool created for myself (free to use)_
 
 ---
 
