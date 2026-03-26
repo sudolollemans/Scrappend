@@ -16,8 +16,8 @@ A utility script that generates a combined text file representation of a script 
 # Expected Structure  
 
 
-~/Documents/Scripts/<script_name>/  
-├── <script_name>  
+~/Documents/Scripts/_name_/  
+├── _name_ 
 └── modules/  
 ├── module1  
 └── module2  
@@ -27,14 +27,14 @@ A utility script that generates a combined text file representation of a script 
 
 # Usage
 
-./script_to_text.sh myscript  
+./scrappend _myscript_
 
 Or interactively:  
 
-./script_to_text.sh  
+./scrappend  
 
 Output
-~/Desktop/<script_name>.txt  
+~/Desktop/_script_name_.txt  
 
 Notes  
 Overwrites existing output file   
