@@ -19,7 +19,7 @@ _Note: This is a personal tool created for myself (free to use)_
 
 
 ~/Documents/Scripts/_name_/  
-├── _name_ 
+├── _name_ (main script)
 └── modules/  
 ├── module1  
 └── module2  
