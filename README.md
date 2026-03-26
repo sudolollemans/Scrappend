@@ -36,8 +36,6 @@ Or interactively:
 Output
 ~/Desktop/<script_name>.txt  
 
-After use the script can be executed directly (obviously).  
-
 Notes  
 Overwrites existing output file   
 Requires readable script directory  
