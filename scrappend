@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# check arg
+#-------------- ARG CHECK ------------------------
 
 if [[ $# -eq 1 ]]; then
     name="$1"
@@ -13,7 +13,7 @@ fi
 HOME_DIR="$HOME/Documents/Scripts/$name"
 DEST_FILE="$HOME/Desktop/$name.txt"
 
-# check if source dir exists
+#-------------- SOURCE DIR CHECK ------------------------
 
 if [[ ! -d "$HOME_DIR" ]]; then
     echo "Script directory not found. Nothing happened."
@@ -22,7 +22,7 @@ else
     echo "Script directory $HOME_DIR found! Continuing script."
 fi
 
-# prepare destination file
+#-------------- PREP DEST FILE  ------------------------
 
 if [[ -f "$DEST_FILE" ]]; then
     echo "Destination file already exists. Creating clean new file."
@@ -34,7 +34,7 @@ fi
 
 echo "Listing script $name in $DEST_FILE."
 
-# append modules first
+#-------------- APPEND MODULES ------------------------
 
 if [[ -d "$HOME_DIR/modules" ]]; then
     echo "Appending lib modules first."
@@ -50,7 +50,7 @@ else
     echo "No libraries found. Skipping to main script."
 fi
 
-# append main script
+#-------------- APPEND MAIN ------------------------
 
 cat "$HOME_DIR/$name" >> "$DEST_FILE"
 
